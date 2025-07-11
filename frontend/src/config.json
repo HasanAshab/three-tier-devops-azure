@@ -3,6 +3,6 @@
     "api_url": "http://localhost:8080"
   },
   "production": {
-    "api_url": "https://app-be-three-tier-app-prod-centralus.azurewebsites.net"
+    "api_url": "https://app-be-three-tier-app-dev-centralus.azurewebsites.net"
   }
 }
