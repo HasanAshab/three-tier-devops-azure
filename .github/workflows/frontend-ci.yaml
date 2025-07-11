@@ -174,7 +174,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker
     env:
-      PREFIX: web
+      PREFIX: frontend
     defaults:
       run:
         working-directory: ./
