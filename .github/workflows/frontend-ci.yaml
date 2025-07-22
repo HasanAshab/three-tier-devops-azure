@@ -124,7 +124,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: frontend
-          target: prod
           push: false
           load: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -164,7 +163,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: frontend
-          target: prod
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
