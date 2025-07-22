@@ -2,10 +2,9 @@ services:
   frontend:
     build:
       context: frontend
-      target: prod
     env_file: ./frontend/.env.prod
     ports:
-      - 4200:80
+      - 4200:4200
     networks:
       - backendfrontend-net
     depends_on:
@@ -26,7 +25,7 @@ services:
       - db
 
   db:
-    image: mysql:8-oracle
+    image: mysql:8
     env_file: ./db/.env.prod
     networks:
       - backenddb-net

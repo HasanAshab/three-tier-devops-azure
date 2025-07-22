@@ -1,9 +1,8 @@
 import axios from "axios";
-import config from "../../config.json"
 
 // axios instance for making requests
 const axiosInstance = axios.create({
-  baseURL: config[process.env.NODE_ENV || "development"].api_url,
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 // request interceptor for adding token
