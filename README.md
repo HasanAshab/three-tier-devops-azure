@@ -18,7 +18,7 @@ This is a DevOps-enhanced deployment of a [Spring Boot + React full stack app](h
 * **Dockerized Build**: Multi-stage Dockerfiles for lean image sizes.
 * **Local Development**: Supports `docker-compose` with hot reload for local debugging.
 * **Azure App Service Deployment**: Web app is containerized and deployed using Azure-native resources.
-* **CI with GitHub Actions**: * see [CI/CD Pipeline](#-cicd-pipeline).
+* **CI with GitHub Actions**: This project is equipped with a robust DevSecOps CI/CD pipeline.
 
 ---
 
