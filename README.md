@@ -35,7 +35,8 @@ Once running, the server will be accessible at:
 
 Frontend supports hot reload out of the box.
 
----
+## 🏗️ Infrastructure
+Checkout the [IaC repository](https://github.com/HasanAshab/spring-react-devops-appservice-infra) for this project's infrastructure.
 
 ## ⚙️ CI/CD Pipeline
 
