@@ -1,0 +1,54 @@
+name: Blue-Green Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      app_name_tag:
+        description: "Application Name Tag"
+        type: string
+        default: "three-tier-app"
+      role_tag:
+        description: "Role Tag"
+        type: string
+        required: true
+      image_ref:
+        description: "Image reference to deploy"
+        type: string
+        required: true
+      azure_subscription_id:
+        description: "Azure Subscription ID"
+        type: string
+        required: true
+
+jobs:
+  blue-green-deploy:
+    name: Blue-Green Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          subscription-id: ${{ inputs.azure_subscription_id }}
+
+      - name: Get WebApp IDs
+        id: webapp_ids
+        run: |
+          ids=$(az webapp list --query "[?tags.AppName=='${{ inputs.app_name_tag }}' && tags.Role=='${{ inputs.role_tag }}'].id" -o tsv)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy to Staging Slot using IDs
+        run: |
+          echo "Deploying Image: ${{ inputs.image_ref }}"
+          for id in ${{ steps.webapp_ids.outputs.ids }}; do
+            echo "Deploying to staging slot of $id"
+            az webapp config container set \
+              --ids $id \
+              --slot staging \
+              --container-image-name ${{ inputs.image_ref }}
+          done
+
+      - name: Swap Staging Slot to Production (Blue → Green)
+        run: |
+          for id in ${{ steps.webapp_ids.outputs.ids }}; do
+            echo "Swapping staging slot to production for $id"
+            az webapp deployment slot swap --ids $id
+          done
