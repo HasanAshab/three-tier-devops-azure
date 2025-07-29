@@ -35,7 +35,6 @@ runs:
         echo "image_name=$prefix-${{ inputs.suffix }}" >> "$GITHUB_OUTPUT"
 
     - name: Set up Docker Buildx
-      shell: bash
       uses: docker/setup-buildx-action@v3
 
     - name: Login to GitHub Container Registry
