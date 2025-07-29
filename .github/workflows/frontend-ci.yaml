@@ -173,7 +173,7 @@ jobs:
     name: Blue-Green Deployment
     runs-on: ubuntu-latest
     steps:
-      - uses: ./blue-green-deploy.yaml
+      - uses: ./.github/workflows/blue-green-deploy.yaml
         with:
           role_tag: Frontend
           azure_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
