@@ -110,4 +110,3 @@ jobs:
           role_tag: Frontend
           azure_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           image_ref: ${{ needs.docker.outputs.image_ref }}
-          

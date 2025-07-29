@@ -26,7 +26,6 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v4
-      shell: bash
 
     - name: Set variables
       id: vars
@@ -41,7 +40,6 @@ runs:
 
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
-      shell: bash
       with:
         registry: ${{ inputs.registry }}
         username: ${{ github.actor }}
@@ -50,7 +48,6 @@ runs:
     - name: Extract metadata for Docker
       id: meta
       uses: docker/metadata-action@v5
-      shell: bash
       with:
         images: ${{ inputs.registry }}/${{ steps.vars.outputs.image_name }}
         tags: |
@@ -60,7 +57,6 @@ runs:
 
     - name: Build docker image
       uses: docker/build-push-action@v6
-      shell: bash
       with:
         context: frontend
         push: false
@@ -83,7 +79,6 @@ runs:
 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
-      shell: bash
       with:
         image-ref: ${{ steps.set_output.outputs.image_ref }}
         format: 'table'
@@ -95,7 +90,6 @@ runs:
     - name: Push docker image
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: docker/build-push-action@v6
-      shell: bash
       with:
         context: frontend
         push: true

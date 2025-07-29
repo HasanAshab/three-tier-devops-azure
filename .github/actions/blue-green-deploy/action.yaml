@@ -25,7 +25,6 @@ runs:
   using: composite
   steps:
     - name: Azure Login
-      shell: bash
       uses: azure/login@v1
       with:
         subscription-id: ${{ inputs.azure_subscription_id }}
