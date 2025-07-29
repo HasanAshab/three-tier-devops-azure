@@ -25,17 +25,20 @@ runs:
   using: composite
   steps:
     - name: Azure Login
+      shell: bash
       uses: azure/login@v1
       with:
         subscription-id: ${{ inputs.azure_subscription_id }}
 
     - name: Get WebApp IDs
       id: webapp_ids
+      shell: bash
       run: |
         ids=$(az webapp list --query "[?tags.AppName=='${{ inputs.app_name_tag }}' && tags.Role=='${{ inputs.role_tag }}'].id" -o tsv)
         echo "ids=$ids" >> "$GITHUB_OUTPUT"
 
     - name: Deploy to Blue Slot using IDs
+      shell: bash
       run: |
         echo "Deploying Image: ${{ inputs.image_ref }}"
         for id in ${{ steps.webapp_ids.outputs.ids }}; do
@@ -47,6 +50,7 @@ runs:
         done
 
     - name: Swap Slots (Blue → Green)
+      shell: bash
       run: |
         for id in ${{ steps.webapp_ids.outputs.ids }}; do
           echo "Swapping ${{ inputs.blue_slot_name }} slot to production for $id"
