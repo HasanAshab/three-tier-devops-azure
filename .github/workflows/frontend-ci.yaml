@@ -172,6 +172,7 @@ jobs:
   blue-green-deploy:
     name: Blue-Green Deployment
     runs-on: ubuntu-latest
+    needs: docker
     steps:
       - uses: ./.github/workflows/blue-green-deploy.yaml
         with:
