@@ -1,6 +1,6 @@
 name: Blue-Green Deployment
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       app_name_tag:
         description: "Application Name Tag"
