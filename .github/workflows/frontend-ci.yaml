@@ -102,6 +102,9 @@ jobs:
     name: Blue-Green Deployment
     runs-on: ubuntu-latest
     needs: docker
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
