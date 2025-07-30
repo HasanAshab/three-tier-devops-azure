@@ -64,5 +64,7 @@ runs:
       run: |
         for id in ${{ steps.webapp_ids.outputs.ids }}; do
           echo "Swapping ${{ inputs.blue_slot_name }} slot to production for $id"
-          az webapp deployment slot swap --ids $id
+          az webapp deployment slot swap \
+            --ids $id \
+            --slot ${{ inputs.blue_slot_name }}
         done
