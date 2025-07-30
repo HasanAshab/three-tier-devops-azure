@@ -44,7 +44,8 @@ runs:
       shell: bash
       run: |
         ids=$(az webapp list --query "[?tags.AppName=='${{ inputs.app_name_tag }}' && tags.Role=='${{ inputs.role_tag }}'].id" -o tsv)
-        echo "ids=$ids" >> "$GITHUB_OUTPUT"
+        ids_flat=$(echo "$ids" | tr '\n' ' ')
+        echo "ids=$ids_flat" >> "$GITHUB_OUTPUT"
 
     - name: Deploy to Blue Slot using IDs
       shell: bash
