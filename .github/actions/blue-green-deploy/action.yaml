@@ -1,6 +1,18 @@
 name: Blue-Green Deployment
 description: Deploy to Blue slot then swap to Green slot
 inputs:
+  azure_client_id:
+    description: "Azure Client ID"
+    type: string
+    required: true
+  azure_tenant_id:
+    description: "Azure Tenant ID"
+    type: string
+    required: true
+  azure_subscription_id:
+    description: "Azure Subscription ID"
+    type: string
+    required: true
   app_name_tag:
     description: "Application Name Tag"
     type: string
@@ -13,10 +25,6 @@ inputs:
     description: "Image reference to deploy"
     type: string
     required: true
-  azure_subscription_id:
-    description: "Azure Subscription ID"
-    type: string
-    required: true
   blue_slot_name:
     description: "Blue Slot Name"
     type: string
@@ -27,6 +35,8 @@ runs:
     - name: Azure Login
       uses: azure/login@v1
       with:
+        client-id: ${{ inputs.azure_client_id }}
+        tenant-id: ${{ inputs.azure_tenant_id }}
         subscription-id: ${{ inputs.azure_subscription_id }}
 
     - name: Get WebApp IDs
