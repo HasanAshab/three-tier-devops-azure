@@ -1,6 +1,8 @@
 [submodule "src"]
 	path = src
 	url = https://github.com/hasanashab/spring-react-devops-appservice.git
+  branch = main
 [submodule "infra"]
 	path = infra
 	url = https://github.com/hasanashab/spring-react-devops-appservice-infra.git
+  branch = main
