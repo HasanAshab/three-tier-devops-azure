@@ -1,4 +1,4 @@
-# SpringBoot + React Web App – DevOps Edition
+# Three Tier App DevOps with Azure
 
 **Frontend**  
 [![CI pipeline](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/frontend-ci.yaml/badge.svg)](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/frontend-ci.yaml)
