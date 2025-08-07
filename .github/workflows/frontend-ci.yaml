@@ -4,19 +4,17 @@ on:
     branches:
       - main
     paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-ci.yaml'
+      - 'src/frontend/**'
 
   pull_request:
     branches:
       - main
     paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-ci.yaml'
+      - 'src/frontend/**'
 
 defaults:
   run:
-    working-directory: frontend
+    working-directory: src/frontend
 
 jobs:
   test:
@@ -29,7 +27,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: src/frontend/package-lock.json
       
       - name: Install dependencies
         run: npm ci 
@@ -47,7 +45,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: src/frontend/package-lock.json
           
       - name: Install dependencies
         run: npm ci 
@@ -68,7 +66,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: src/frontend/package-lock.json
 
   
       - name: Build project

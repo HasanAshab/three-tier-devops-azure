@@ -1,12 +1,12 @@
 # SpringBoot + React Web App – DevOps Edition
 
 **Frontend**  
-[![CI pipeline](https://github.com/HasanAshab/spring-react-devops-appservice/actions/workflows/frontend-ci.yaml/badge.svg)](https://github.com/HasanAshab/spring-react-devops-appservice/actions/workflows/frontend-ci.yaml)
-[![image size](https://ghcr-badge.egpl.dev/hasanashab/spring-react-devops-appservice-frontend/size)](https://github.com/HasanAshab/spring-react-devops-appservice/pkgs/container/spring-react-devops-appservice-frontend)
+[![CI pipeline](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/frontend-ci.yaml/badge.svg)](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/frontend-ci.yaml)
+[![image size](https://ghcr-badge.egpl.dev/hasanashab/three-tier-devops-azure-frontend/size)](https://github.com/HasanAshab/three-tier-devops-azure/pkgs/container/three-tier-devops-azure-frontend)
 
 **Backend** 
-[![CI pipeline](https://github.com/HasanAshab/spring-react-devops-appservice/actions/workflows/backend-ci.yaml/badge.svg)](https://github.com/HasanAshab/spring-react-devops-appservice/actions/workflows/backend-ci.yaml)
-[![image size](https://ghcr-badge.egpl.dev/hasanashab/spring-react-devops-appservice-backend/size)](https://github.com/HasanAshab/spring-react-devops-appservice/pkgs/container/spring-react-devops-appservice-backend)
+[![CI pipeline](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/backend-ci.yaml/badge.svg)](https://github.com/HasanAshab/three-tier-devops-azure/actions/workflows/backend-ci.yaml)
+[![image size](https://ghcr-badge.egpl.dev/hasanashab/three-tier-devops-azure-backend/size)](https://github.com/HasanAshab/three-tier-devops-azure/pkgs/container/three-tier-devops-azure-backend)
 
 
 This is a DevOps-enhanced deployment of a [Spring Boot + React full stack app](https://github.com/purshink/ReactJS-Spring-Boot-Full-Stack-App), restructured and productionized with best practices for containerization, CI/CD, and cloud deployment.
@@ -36,7 +36,7 @@ Once running, the server will be accessible at:
 Frontend supports hot reload out of the box.
 
 ## 🏗️ Infrastructure
-Checkout the [IaC repository](https://github.com/HasanAshab/spring-react-devops-appservice-infra) for this project's infrastructure.
+Checkout the [IaC repository](https://github.com/HasanAshab/three-tier-devops-azure-infra) for this project's infrastructure.
 
 ## ⚙️ CI/CD Pipeline
 

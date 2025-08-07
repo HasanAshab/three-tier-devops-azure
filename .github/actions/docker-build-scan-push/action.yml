@@ -57,7 +57,7 @@ runs:
     - name: Build docker image
       uses: docker/build-push-action@v6
       with:
-        context: frontend
+        context: src/${{ inputs.suffix }}
         push: false
         load: true
         tags: ${{ steps.meta.outputs.tags }}
@@ -90,7 +90,7 @@ runs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: docker/build-push-action@v6
       with:
-        context: frontend
+        context: src/${{ inputs.suffix }}
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
