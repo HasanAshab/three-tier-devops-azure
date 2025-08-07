@@ -56,7 +56,7 @@ jobs:
 
     - name: Run TFLint
       working-directory: infra
-      run: tflint --config="$(pwd)/infra/.tflint.hcl" --recursive
+      run: tflint --config="$(pwd)/.tflint.hcl" --recursive
 
   test:
     name: Unit Test
