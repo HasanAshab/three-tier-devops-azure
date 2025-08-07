@@ -119,6 +119,7 @@ jobs:
 
       - uses: dflook/terraform-plan@v2
         with:
+          path: infra
           workspace: ${{ matrix.workspace }}
           var_file: infra/envs/${{ matrix.workspace }}.tfvars
 
@@ -174,6 +175,7 @@ jobs:
       - name: Terraform Apply
         uses: dflook/terraform-apply@v2
         with:
+          path: infra
           workspace: prod
           var_file: infra/envs/prod.tfvars
 
