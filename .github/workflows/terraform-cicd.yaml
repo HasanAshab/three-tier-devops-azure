@@ -46,15 +46,16 @@ jobs:
     - uses: actions/cache@v4
       with:
         path: ~/.tflint.d/plugins
-        key: tflint-${{ hashFiles('.tflint.hcl') }}
+        key: tflint-${{ hashFiles('infra/.tflint.hcl') }}
 
     - uses: terraform-linters/setup-tflint@v4
 
     - name: Init TFLint
+      working-directory: infra
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint --config="$(pwd)/infra/.tflint.hcl" --recursive
+      run: tflint --config="$(pwd)/infra/.tflint.hcl" --recursive infra
 
   test:
     name: Unit Test
@@ -91,6 +92,7 @@ jobs:
 
       - uses: bridgecrewio/checkov-action@v12
         with:
+          directory: infra
           output_format: cli,sarif
           output_file_path: console,results.sarif
 
