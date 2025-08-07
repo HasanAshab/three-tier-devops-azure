@@ -33,6 +33,8 @@ jobs:
 
       - name: Terraform fmt
         uses: dflook/terraform-fmt-check@v2
+        with:
+          path: infra
 
   lint:
     name: TFLint
@@ -66,6 +68,7 @@ jobs:
       - name: Terraform Test
         uses: dflook/terraform-test@v2
         with:
+          path: infra
           var_file: infra/envs/${{ matrix.workspace }}.tfvars
 
   validate:
@@ -134,7 +137,7 @@ jobs:
 
       - name: Generate Infracost cost estimate baseline
         run: |
-          infracost breakdown --path=. \
+          infracost breakdown --path=infra \
                               --format=json \
                               --out-file=/tmp/infracost-base.json
 
@@ -143,7 +146,7 @@ jobs:
 
       - name: Generate Infracost diff
         run: |
-          infracost diff --path=. \
+          infracost diff --path=infra \
                           --format=json \
                           --compare-to=/tmp/infracost-base.json \
                           --out-file=/tmp/infracost.json
@@ -168,8 +171,8 @@ jobs:
       - name: Terraform Apply
         uses: dflook/terraform-apply@v2
         with:
-          workspace: ${{ matrix.workspace }}
-          var_file: infra/envs/${{ matrix.workspace }}.tfvars
+          workspace: prod
+          var_file: infra/envs/prod.tfvars
 
   cost-analysis:
     name: Post-Deployment Cost Analysis and Report
@@ -183,7 +186,7 @@ jobs:
 
       - name: Generate Infracost cost estimate
         run: |
-          infracost breakdown --path=. \
+          infracost breakdown --path=infra \
                               --format=json \
                               --out-file=/tmp/post-deployment-cost.json
 
