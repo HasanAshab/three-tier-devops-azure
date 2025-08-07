@@ -7,9 +7,9 @@ asp_sku                        = "S1"
 asp_worker_count               = 2
 asp_zone_balancing_enabled     = true
 asp_autoscaling_enabled        = true
-asp_autoscale_default_capacity = 2
-asp_autoscale_minimum_capacity = 1
-asp_autoscale_maximum_capacity = 5
+asp_autoscale_default_capacity = 3
+asp_autoscale_minimum_capacity = 2
+asp_autoscale_maximum_capacity = 6
 
 # database
 database_sku                          = "B_Standard_B1ms"
